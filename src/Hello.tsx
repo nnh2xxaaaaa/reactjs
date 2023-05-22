@@ -1,12 +1,28 @@
-/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import { Handle } from "./InterFaces";
-import { Layout, Menu } from "antd";
 
-const { Header, Content, Sider } = Layout;
+const datdInter = [
+  "Cash",
+  "Home",
+  "Bank",
+  "ReNameBank",
+  "ValueBank",
+  "Exchange",
+  "ExchangeValueBank",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+  "InterFaces",
+];
 
-const Hello = () => {
+const Home = () => {
   const [data, setData] = useState<Handle[]>([]);
+  const [showData, setShowData] = useState(false);
 
   const getData = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -16,45 +32,52 @@ const Hello = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getData();
-      setData(data);
+      const fetchedData = await getData();
+      const updatedData = fetchedData.map((e: any, i:  number) => ({
+        ...e,
+        inter: datdInter[i],
+      }));
+      setData(updatedData);
     };
     fetchData();
   }, []);
 
-  const hi = data.map((item) => {
-    const hihi = data.map((item) => {
-      return { key: item.id, label: item.name };
-    });
-    const items = [...hihi];
-    return (
-      <div key={item.id}>
-        <Layout key={item.id} hasSider>
-          <Sider
-            style={{
-              overflow: "auto",
-              height: "100vh",
-              position: "fixed",
-              left: 0,
-              top: 0,
-              bottom: 0,
-            }}
-          >
-            <div className="demo-logo-vertical" />
-            <Menu
-              theme="dark"
-              mode="inline"
-              defaultSelectedKeys={[item.id.toString()]}
-              items={items}
-            />
-          </Sider>
-        </Layout>
-        <div>Ok</div>
-      </div>
-    );
-  });
+  const handleData = async () => {
+    const fetchedData = await getData();
+    const updatedData = fetchedData.map((e: any, i:  number) => ({
+      ...e,
+      inter: datdInter[i],
+    }));
+    setData(updatedData);
+    setShowData(true);
+  };
+  
+  const removerHanleData = () => {
+    setShowData(false);
+  };
+  
+  console.log(data)
 
-  return <div>{hi}</div>;
+  const renderedData = data.map((e) => (
+    <div key={e.id}>
+      <h1>Xin chao {e.name}</h1>
+      <div>
+        <h1>Address: {e.address.city}</h1>
+        <h1>Address: {e.inter}</h1>
+      </div>
+      <div>
+      </div>
+    </div>
+  ));
+
+  return (
+    <div>
+      <h1>Hello React JS</h1>
+      <button onClick={handleData}>Handle Data JSON</button>
+      <button onClick={removerHanleData}>Remove Handle Data JSON</button>
+      {showData && renderedData}
+    </div>
+  );
 };
 
-export default Hello;
+export default Home;
