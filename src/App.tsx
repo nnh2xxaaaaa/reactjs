@@ -8,7 +8,6 @@ function App() {
     <div >
       <div>
         <Hello/>
-        <h2>h</h2>
       </div>
     </div>
   );
