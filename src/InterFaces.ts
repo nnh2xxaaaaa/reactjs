@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
 
 export interface Handle {
-  inter: ReactNode;
+  color: string;
+  inter: string;
+  password: string;
   id: number;
   name: string;
   email: string;
