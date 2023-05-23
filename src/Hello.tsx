@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Handle } from "./InterFaces";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Divider, Form, Input } from "antd";
 
 const datdInter = [
   "Cash",
@@ -33,27 +33,25 @@ const color = [
   "asterisk",
 ];
 const password = [
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-  'abcdefghijkl',
-]
-
-
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+  "abcdefghijkl",
+];
 
 const Home = () => {
   const [data, setData] = useState<Handle[]>([]);
@@ -71,9 +69,9 @@ const Home = () => {
         ...e,
         inter: datdInter[i],
         color: color[i],
-        password:password[i]
+        password: password[i],
       }));
-  
+
       setData([...updatedData]);
       setShowData(true);
     };
@@ -81,71 +79,115 @@ const Home = () => {
   }, []);
   const onFinish = (values: any) => {
     if (data.length > 0) {
-      const filteredData = data.filter((item) => item.name === values.username && item.password === values.password );
+      const filteredData = data.filter(
+        (item) =>
+          item.name === values.username && item.password === values.password
+      );
       setMatchingData(filteredData);
     } else {
-      setMatchingData([])
+      setMatchingData([]);
     }
   };
-  console.log(data)
+
+
+
+  const NewName = () => {
+    const handleDelete = (index: number) => {
+      setData((prevData) => {
+        const newData = [...prevData];
+        newData.splice(index, 1);
+        return newData;
+      });
+    };
+  
+    const handleEdit = (index: number) => {
+      const newName = prompt('Enter new name');
+      if (newName !== ' ') {
+        setData((prevData) => {
+          const newData = [...prevData];
+          newData[index].name = newName;
+          return newData;
+        });
+      }
+    };
+  
+    return (
+      <div>
+        {data.map((item, index) => (
+          <div key={index}>
+            <h1>
+              Hello {item.name} --- {index + 1}
+            </h1>
+            <button onClick={() => handleDelete(index)}>Delete</button>
+            <button onClick={() => handleEdit(index)}>Edit</button>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  
+  
 
   const onFinishFailed = (errorInfo: any) => {};
   return (
     <div>
-      <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
+      <div>
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 600, backgroundColor: "violet" }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: "Please input your username!" }]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            wrapperCol={{ offset: 8, span: 16 }}
+          >
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-      {matchingData.length > 0 ? (
-        <div>
-          {matchingData.map((item, key) => (
-            <div key={key}>
-              <h1> Name: {item.name}</h1>
-              <h1> Email: {item.email}</h1>
-              <h1> Address: {item.address.city}</h1>
-              <h1> password: {item.password}</h1>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <h1>Emtys</h1>
-      )}
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+        {matchingData.length > 0 ? (
+          <div>
+            {matchingData.map((item, key) => (
+              <div key={key}>
+                <h1> Name: {item.name}</h1>
+                <h1> Email: {item.email}</h1>
+                <h1> Address: {item.address.city}</h1>
+                <h1> password: {item.password}</h1>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <h1>Emtys</h1>
+        )}
+      </div>
+      <NewName />
     </div>
   );
 };
