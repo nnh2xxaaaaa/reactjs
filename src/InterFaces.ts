@@ -5,7 +5,7 @@ export interface Handle {
   inter: string;
   password: string;
   id: number;
-  name: string;
+  name: string | null
   email: string;
   address: {
     street: string;
