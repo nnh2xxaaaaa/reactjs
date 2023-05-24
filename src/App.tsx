@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
-import Hello from './Hello';
+import React from "react";
+import "./App.css";
 
-document.title = 'Hooks';
+document.title = "Hooks";
 function App() {
   return (
-    <div >
-        <Hello/>
+    <div>
+      <h1>Hello</h1>
     </div>
   );
 }
