@@ -53,6 +53,7 @@ const HomeLogin = () => {
   return (
     <div style={{ flex: 1, justifyContent: "center" }}>
       <h1 id="text-welcome">Login Form Name</h1>
+      <h1 id="text-welcome">H1 test remote company</h1>
       <input type="text" onChange={handleInput} className="input-add" />
       <Home names={inputText} />
       <button className="button-click" onClick={handleInputEnter}>
