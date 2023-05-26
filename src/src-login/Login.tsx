@@ -8,7 +8,6 @@ const HomeLogin = () => {
   const [inputText, setInputText] = useState("");
   const [pushArray, setPushArray] = useState<string[]>([]);
 
-
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextDefault(e.target.value);
   };
@@ -30,31 +29,42 @@ const HomeLogin = () => {
   };
 
   const RenderValue = () => {
-   
-    if(pushArray.length > 0){
+    if (pushArray.length > 0) {
       return (
-        <div className="box-center" >
-        {pushArray.map((array, index) => (
+        <div className="box-center">
+          {pushArray.map((array, index) => (
             <div key={index} className="box-render">
-                <p id='welcome-array'>Hello welcome back:{array}</p>
-              <button  className="button-click" onClick={() => deleteButton(index)}>delete</button>
+              <p id="welcome-array">Hello welcome back:{array}</p>
+              <button
+                className="button-click"
+                onClick={() => deleteButton(index)}
+              >
+                delete
+              </button>
             </div>
           ))}
         </div>
       );
-    }else{
-      return <h1>How to render </h1>
+    } else {
+      return <h1>How to render </h1>;
     }
   };
 
   return (
     <div style={{ flex: 1, justifyContent: "center" }}>
-      <h1 id="text-welcome" >Login Form Name</h1>
+      <h1 id="text-welcome">Login Form Name</h1>
+      <h1 id="text-welcome">H1 test remote company</h1>
       <input type="text" onChange={handleInput} className="input-add" />
       <Home names={inputText} />
-      <button className="button-click"  onClick={handleInputEnter}>Click Add Name</button>
-      <button className="button-click"  onClick={() => setInputText("")}>Reset Add Name</button>
-      <button className="button-click"  onClick={addToArray}>Push Array</button>
+      <button className="button-click" onClick={handleInputEnter}>
+        Click Add Name
+      </button>
+      <button className="button-click" onClick={() => setInputText("")}>
+        Reset Add Name
+      </button>
+      <button className="button-click" onClick={addToArray}>
+        Push Array
+      </button>
       <RenderValue />
     </div>
   );
