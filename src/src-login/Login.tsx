@@ -30,26 +30,31 @@ const HomeLogin = () => {
   };
 
   const RenderValue = () => {
-    return (
-      <>
+   
+    if(pushArray.length > 0){
+      return (
+        <div className="box-center" >
         {pushArray.map((array, index) => (
-          <div key={index}>
-            <h1>Test render: {array}</h1>
-            <button onClick={() => deleteButton(index)}>delete</button>
-          </div>
-        ))}
-      </>
-    );
+            <div key={index} className="box-render">
+                <p id='welcome-array'>Hello welcome back:{array}</p>
+              <button  className="button-click" onClick={() => deleteButton(index)}>delete</button>
+            </div>
+          ))}
+        </div>
+      );
+    }else{
+      return <h1>How to render </h1>
+    }
   };
 
   return (
     <div style={{ flex: 1, justifyContent: "center" }}>
-      <h1>Login Form Name</h1>
-      <input type="text" onChange={handleInput} />
+      <h1 id="text-welcome" >Login Form Name</h1>
+      <input type="text" onChange={handleInput} className="input-add" />
       <Home names={inputText} />
-      <button onClick={handleInputEnter}>Click Add Name</button>
-      <button onClick={() => setInputText("")}>Reset Add Name</button>
-      <button onClick={addToArray}>Push Array</button>
+      <button className="button-click"  onClick={handleInputEnter}>Click Add Name</button>
+      <button className="button-click"  onClick={() => setInputText("")}>Reset Add Name</button>
+      <button className="button-click"  onClick={addToArray}>Push Array</button>
       <RenderValue />
     </div>
   );

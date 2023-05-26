@@ -1,38 +1,72 @@
-.App {
+* {
+  padding: 20;
+  margin: 10px 10px 10px 10px;
+}
+
+body {
+  /* background-color: rgb(49, 132, 215); */
+}
+
+.container {
+  flex: 1;
+  background-color: rgba(21, 223, 155, 0.858);
+  border-radius: 20px;
+}
+
+#text-header {
   text-align: center;
+  color: rgb(88, 132, 88);
+  padding: 20px;
+}
+#text-welcome {
+  color: rgb(241, 14, 75);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button-click {
+  background-color: #4caf50; /* Green */
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.input-add {
+  min-width: 50%;
+  min-height: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: skyblue;
+}
+.box-welcome {
+  background-color: rgb(229, 99, 216);
+  width: 50%;
+  padding: 5px;
+  color: chartreuse;
+  font-size: 15px;
+  font-family: monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.box-render {
+  background-color: rgb(216, 198, 198);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#welcome-array {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: olivedrab;
+  display: inline-block;
+
+}
+
+.box-center {
+  background-color: red;
+  padding: 5px;
+  margin-bottom: 20px;
 }

@@ -5,7 +5,9 @@ type ValueName = {
 }
 const Home = (props: ValueName) => {
   return (
-    <h1>Ho va Ten: {props.names}</h1>
+    <div className="box-welcome">
+      <h2>Xin chao: {props.names}</h2>
+    </div>
   );
 };
 
