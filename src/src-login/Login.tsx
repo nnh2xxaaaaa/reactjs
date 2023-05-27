@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Home from "./Hello";
 
 const HomeLogin = () => {
+  //  default login state
   const [textDefault, setTextDefault] = useState("Huy");
   const [inputText, setInputText] = useState("");
   const [pushArray, setPushArray] = useState<string[]>([]);
@@ -53,7 +54,7 @@ const HomeLogin = () => {
   return (
     <div style={{ flex: 1, justifyContent: "center" }}>
       <h1 id="text-welcome">Login Form Name</h1>
-      <h1 id="text-welcome">H1 test remote company</h1>
+      <h1 id="text-welcome">test remote company</h1>
       <input type="text" onChange={handleInput} className="input-add" />
       <Home names={inputText} />
       <button className="button-click" onClick={handleInputEnter}>
@@ -63,7 +64,7 @@ const HomeLogin = () => {
         Reset Add Name
       </button>
       <button className="button-click" onClick={addToArray}>
-        Push Array
+        Add List
       </button>
       <RenderValue />
     </div>
