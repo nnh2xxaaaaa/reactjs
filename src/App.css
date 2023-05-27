@@ -1,72 +1,26 @@
-* {
-  padding: 20;
-  margin: 10px 10px 10px 10px;
-}
-
-body {
-  background-color: rgb(49, 132, 215);
+body{
+  padding: 10px;
+  margin: 10px;
+  /* background-color: aqua; */
 }
 
 .container {
-  flex: 1;
-  background-color: rgba(21, 223, 155, 0.858);
-  border-radius: 20px;
+    background-color: rgb(222, 210, 159);
 }
 
-#text-header {
-  text-align: center;
-  color: rgb(88, 132, 88);
-  padding: 20px;
-}
-#text-welcome {
-  color: rgb(241, 14, 75);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.button-click {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.input-add {
-  min-width: 50%;
-  min-height: 30px;
-  padding: 5px;
-  border-radius: 10px;
-  border-width: 2px;
-  border-color: skyblue;
-}
-.box-welcome {
-  background-color: rgb(229, 99, 216);
-  width: 50%;
-  padding: 5px;
-  color: chartreuse;
-  font-size: 15px;
-  font-family: monospace;
-}
-
-.box-render {
-  background-color: rgb(216, 198, 198);
-  margin-bottom: 10px;
-  margin-top: 20px;
+.Card {
+  background-color: 'white';
+  margin-top: 10px;
   padding: 10px;
 }
 
-#welcome-array {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: olivedrab;
-  display: inline-block;
-
+.InterCards{
+  margin-top: 10px;
 }
 
-.box-center {
-  background-color: red;
-  padding: 5px;
-  margin-bottom: 20px;
+#Onecard {
+  margin-top: 10px;
+  background-color: rgb(244, 240, 241);
+  border-radius: 10px;
+  padding: 10px;
 }

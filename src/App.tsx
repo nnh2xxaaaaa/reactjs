@@ -1,16 +1,17 @@
-import React from "react";
-import "./App.css";
-import HomeLogin from "./src-login/Login";
 
+import HomeAdd from "./Todo-list/HomeLogin/HomeAdd";
+import "./App.css"
 
-document.title = "Hooks";
-function App() {
+const App = () => {
   return (
-    <div className="container">
-      <h1 id="text-header">React Home</h1>
-      <HomeLogin/>
+    <div>
+         <div className="container" >
+      <div>
+        <h1 id="add-users">Add User</h1>
+        <HomeAdd/>
+      </div>
+    </div>
     </div>
   );
-}
-
+};
 export default App;
