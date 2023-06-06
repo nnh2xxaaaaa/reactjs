@@ -13,28 +13,29 @@ interface Root {
 const HomeAdd = () => {
   const [valueInput, setValueInput] = useState<Root[]>([]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [passwordError, setPasswordError] = useState<string>("");
 
-const onFinish = (values: any) => {
+  const onFinish = (values: any) => {
     if (editIndex !== null) {
-
       setValueInput((prevValues) => {
         const updatedValues = [...prevValues];
         updatedValues[editIndex] = values;
-        console.log(updatedValues)
+        console.log(updatedValues);
         return updatedValues;
       });
-    
+
       setEditIndex(null); // Reset editIndex to null after editing
     } else {
       // Adding new information
       if (values.password === values.confirmpassword) {
         setValueInput((prevValues) => [...prevValues, values]);
+        setPasswordError(""); // Clear password error if there was any
       } else {
-        alert("Check your password");
+        setPasswordError("Please check your password");
       }
     }
   };
-  
+
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
@@ -47,7 +48,7 @@ const onFinish = (values: any) => {
     });
   };
 
-const Render = () => {
+  const Render = () => {
     return (
       <>
         <div className="InterCards">
@@ -64,7 +65,10 @@ const Render = () => {
                     </Button>
                   </Space>
                   <Space wrap>
-                    <Button type="primary" onClick={() => setEditIndex(index)}>
+                    <Button
+                      type="primary"
+                      onClick={() => setEditIndex(index)}
+                    >
                       Edit Info
                     </Button>
                   </Space>
@@ -76,8 +80,6 @@ const Render = () => {
       </>
     );
   };
-  
-
 
   return (
     <div>
@@ -91,6 +93,7 @@ const Render = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
+          onValuesChange={() => setPasswordError("")} // Clear password error on input change
         >
           <Form.Item
             label="Username"
@@ -134,6 +137,12 @@ const Render = () => {
               Add user
             </Button>
           </Form.Item>
+
+          {passwordError && (
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <div className="ant-form-item-explain-error">{passwordError}</div>
+            </Form.Item>
+          )}
         </Form>
       </div>
 
