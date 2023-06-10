@@ -40,6 +40,7 @@ const DataConsole = () => {
       console.log(haskMap);
     });
   }, [dataName]);
+  
 
   return (
     <div>
