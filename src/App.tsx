@@ -13,11 +13,14 @@ const App = () => {
   },[title])
 
   return (
+    
     <div>
          <div className="container" >
       <div>
         <DataConsole/>
         <h1 id="add-users">Add User</h1>
+        <button className="myButton">Click Me</button>
+
         <HomeAdd/>
       </div>
     </div>

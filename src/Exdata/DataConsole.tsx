@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Root } from "../Todo-list/Mounted/interFaceApi";
 
 const DataConsole = () => {
@@ -37,6 +37,7 @@ const DataConsole = () => {
           console.log(k);
         }
       }
+      console.log(haskMap);
       console.log(haskMap);
     });
   }, [dataName]);
